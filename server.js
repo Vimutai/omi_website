@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 3000;
 const emailUser = process.env.EMAIL_USER;
 const emailPass = process.env.EMAIL_PASS;
 const webhookUrl = process.env.WEBHOOK_URL || 'https://script.google.com/macros/s/AKfycbydzRV0e-FgFj30vMq-0ZgrcHaAeL0JUCkl7Ssn4WqwMjPlFku-3RJSs9c5LnjXOR_zyQ/exec';
-const PUBLIC_URL = process.env.PUBLIC_URL || `http://localhost:${PORT}`;
+const PUBLIC_URL = process.env.PUBLIC_URL || process.env.RAILWAY_PUBLIC_DOMAIN || `http://localhost:${PORT}`;
 
 // ===== EXPRESS APP SETUP =====
 const app = express();
