@@ -91,20 +91,20 @@ if (emailUser && emailPass) {
   transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST || 'smtp.gmail.com',
     port: process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : 587,
-    secure: process.env.SMTP_SECURE === 'true', // false for 587
+    secure: process.env.SMTP_SECURE === 'true',
     auth: { user: emailUser, pass: emailPass },
     tls: { rejectUnauthorized: false }
   });
 
- transporter.verify((error, success) => {
-  if (error) {
-    console.warn('⚠️ Email transporter not ready, skipping email in production:', error.message);
-    transporter = null; // prevent usage
-  } else {
-    console.log('✅ Email transporter ready');
-  }
-});
-
+  transporter.verify((error, success) => {
+    if (error) {
+      console.warn('⚠️ Email transporter not ready, skipping email in production:', error.message);
+      transporter = null;
+    } else {
+      console.log('✅ Email transporter ready');
+    }
+  });
+}
 
 // ===== ROUTES =====
 
@@ -224,9 +224,6 @@ app.use('*', (req,res) => res.status(404).json({ success:false, error:'Route not
 app.use((err, req,res,next) => res.status(500).json({ success:false, error:'Internal server error', details:err.message }));
 
 // ===== START SERVER =====
-import fs from 'fs';
-console.log('Public folder files:', fs.readdirSync(path.join(__dirname, 'public')));
-
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`
 🚀 BESTIE Server running in ${NODE_ENV} mode
