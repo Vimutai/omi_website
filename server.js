@@ -224,6 +224,9 @@ app.use('*', (req,res) => res.status(404).json({ success:false, error:'Route not
 app.use((err, req,res,next) => res.status(500).json({ success:false, error:'Internal server error', details:err.message }));
 
 // ===== START SERVER =====
+import fs from 'fs';
+console.log('Public folder files:', fs.readdirSync(path.join(__dirname, 'public')));
+
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`
 🚀 BESTIE Server running in ${NODE_ENV} mode
