@@ -24,6 +24,7 @@ const PUBLIC_URL = process.env.PUBLIC_URL || process.env.RAILWAY_PUBLIC_DOMAIN |
 
 // ===== EXPRESS APP SETUP =====
 const app = express();
+app.set('trust proxy', 1); // 1 proxy hop
 
 // Security & performance
 app.use(helmet({
@@ -95,13 +96,15 @@ if (emailUser && emailPass) {
     tls: { rejectUnauthorized: false }
   });
 
-  transporter.verify((error, success) => {
-    if (error) console.error('❌ Email transporter error:', error);
-    else console.log('✅ Email transporter ready');
-  });
-} else {
-  console.warn('⚠️ Email disabled - missing EMAIL_USER or EMAIL_PASS');
-}
+ transporter.verify((error, success) => {
+  if (error) {
+    console.warn('⚠️ Email transporter not ready, skipping email in production:', error.message);
+    transporter = null; // prevent usage
+  } else {
+    console.log('✅ Email transporter ready');
+  }
+});
+
 
 // ===== ROUTES =====
 
