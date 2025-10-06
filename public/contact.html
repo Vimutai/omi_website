@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Favicon for all devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="manifest" href="/images/site.webmanifest">
+    
+    <title>Contact - Offmind Wellness</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <img src="/images/logo.png" alt="Offmind Wellness" class="logo-image">
+                <span class="brand-text">Offmind Wellness</span>  <!-- ✅ Updated brand -->
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="programs.html" class="nav-link">Programs</a></li>
+                <li><a href="tickets.html" class="nav-link">Book Now</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Get in Touch</h1>
+                <p class="page-subtitle">We'd love to hear from you and answer any questions about our wellness programs</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section section-padding">
+            <div class="container">
+                <div class="contact-container">
+                    <!-- Contact Form -->
+                    <div class="contact-form-wrapper">
+                        <h2 class="section-title">Send us a Message</h2>
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="contact-name" class="form-label">Your Name</label>
+                                    <input type="text" id="contact-name" name="name" required class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-email" class="form-label">Email Address</label>
+                                    <input type="email" id="contact-email" name="email" required class="form-input">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Subject</label>
+                                <select id="subject" name="subject" required class="form-input">
+                                    <option value="">Select a topic</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="programs">Program Information</option>
+                                    <option value="booking">Booking Questions</option>
+                                    <option value="partnership">Partnership Opportunities</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" name="message" rows="6" required class="form-input"
+                                    placeholder="Tell us how we can help you on your wellness journey..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-large" id="contact-submit-btn">
+                                <span id="contact-button-text">Send Message</span>
+                                <div id="contact-spinner" class="spinner hidden"></div>
+                            </button>
+                        </form>
+
+                        <!-- Success Message -->
+                        <div id="contact-success" class="success-message hidden">
+                            <div class="success-icon">✅</div>
+                            <h3>Message Sent Successfully!</h3>
+                            <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <h2 class="section-title">Connect With Us</h2>
+                        
+
+                        <div class="info-section">
+                            <h3 class="info-title">📞 Call or Text</h3>
+                            <div class="info-content">
+                                <p class="info-text">
+                                    <a href="tel:+254721170615" class="contact-link">+(254) 721 170615</a><br>
+                                    <span class="info-note">Monday - Friday: 9AM - 6PM EAT</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="info-section">
+                            <h3 class="info-title">✉️ Email Us</h3>
+                            <div class="info-content">
+                                <div class="email-options">
+                                    <div class="email-option">
+                                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@bestie.co.ke"
+                                        class="email-link"
+                                        target="_blank"
+                                        rel="noopener">
+                                        📧 info@bestie.co.ke
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="email-option">
+                                        <a href="mailto:info@bestie.co.ke"
+                                        class="email-link"
+                                        target="_blank"
+                                        rel="noopener">
+                                        📋 programs@bestie.co.ke
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-section">
+                            <h3 class="info-title">🌟 Follow Our Journey</h3>
+                            <div class="social-links-detailed">
+                                <a href="https://www.facebook.com/profile.php?id=61580206437384" target="_blank" class="social-link-detailed">
+                                    <span class="social-icon">📘</span>
+                                    <div class="social-text">
+                                        <span class="social-name">Facebook</span>
+                                        <span class="social-handle">Offmind Initiative</span>
+                                    </div>
+                                </a>
+                                <a href="https://www.instagram.com/offmind_wellness/" target="_blank" class="social-link-detailed">
+                                    <span class="social-icon">📷</span>
+                                    <div class="social-text">
+                                        <span class="social-name">Instagram</span>
+                                        <span class="social-handle">@offmind_wellness</span>
+                                    </div>
+                                </a>
+                                <a href="https://www.tiktok.com/@offmind_wellness" target="_blank" class="social-link-detailed">
+                                    <span class="social-icon">🎵</span>
+                                    <div class="social-text">
+                                        <span class="social-name">TikTok</span>
+                                        <span class="social-handle">@offmind_wellness</span>
+                                    </div>
+                                </a>
+                                <a href="https://www.linkedin.com/in/offmind-wellness-296980388/" target="_blank" class="social-link-detailed">
+                                    <span class="social-icon">💼</span>
+                                    <div class="social-text">
+                                        <span class="social-name">LinkedIn</span>
+                                        <span class="social-handle">Offmind wellness</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="info-section">
+                            <h3 class="info-title">🕒 Response Times</h3>
+                            <div class="info-content">
+                                <div class="response-time">
+                                    <span class="time-method">Email:</span>
+                                    <span class="time-duration">Within 24 hours</span>
+                                </div>
+                                <div class="response-time">
+                                    <span class="time-method">Phone:</span>
+                                    <span class="time-duration">Immediate during business hours</span>
+                                </div>
+                                <div class="response-time">
+                                    <span class="time-method">Social Media:</span>
+                                    <span class="time-duration">Within 4 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Quick answers to common questions</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What should I bring to the programs?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We provide a detailed packing list after booking, but generally bring comfortable outdoor clothing, water bottle, journal, and an open mind. All specialized equipment is provided.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Are the programs suitable for beginners?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely! Our programs are designed for all experience levels. Our guides provide gentle instruction and adapt activities to each participant's comfort level.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What is your cancellation policy?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We offer full refunds for cancellations made 14+ days before your program. Cancellations within 7-14 days receive 50% refund. Weather-related cancellations receive full refunds.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do you accommodate dietary restrictions?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! We accommodate all dietary restrictions including vegan, gluten-free, and food allergies. Please specify your needs during booking or contact us directly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <img src="/images/logo.png" alt="BESTIE CO.KE" class="footer-logo">
+                    <p class="footer-tagline">Breathe. Unplug. Renew.</p>
+                </div>
+                <p class="footer-description">
+                    Transforming lives through mindful wellness experiences and nature connection.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="tickets.html">Book Now</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Programs</h4>
+                <ul class="footer-links">
+                    <li><a href="programs.html#bestie">Bestie Program</a></li>
+                    <li><a href="programs.html#ecotherapy">Ecotherapy</a></li>
+                    <li><a href="programs.html#family-exchange">Family Exchange</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Connect</h4>
+                <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61580206437384" target="_blank" class="social-link" aria-label="Facebook">📘</a>
+                        <a href="https://www.instagram.com/offmind_wellness/" target="_blank" class="social-link" aria-label="Instagram">📷</a>
+                        <a href="https://www.tiktok.com/@offmind_wellness" target="_blank" class="social-link" aria-label="TikTok">🎵</a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@bestie.co.ke"
+                            class="social-link"
+                            aria-label="Email"
+                            target="_blank">✉️
+                        </a>
+                    </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BESTIE CO.KE. All rights reserved.</p>  <!-- ✅ Fixed brand -->
+        </div>
+    </div>
+</footer>
+
+    <!-- Optimized Form Handling -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('contact-submit-btn');
+        const buttonText = document.getElementById('contact-button-text');
+        const spinner = document.getElementById('contact-spinner');
+        const successMessage = document.getElementById('contact-success');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Show loading state
+            submitBtn.disabled = true;
+            buttonText.textContent = 'Sending...';
+            spinner.classList.remove('hidden');
+            submitBtn.style.opacity = '0.7';
+
+            const formData = {
+                name: document.getElementById('contact-name').value,
+                email: document.getElementById('contact-email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                console.log('📧 Sending contact form...');
+                
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                console.log('📊 Response status:', response.status);
+                
+                const result = await response.json();
+                console.log('📊 Response data:', result);
+
+                if (response.ok && result.success) {
+                    // Show success message
+                    contactForm.classList.add('hidden');
+                    successMessage.classList.remove('hidden');
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    console.log('✅ Contact form submitted successfully');
+                } else {
+                    throw new Error(result.error || 'Failed to send message');
+                }
+
+            } catch (error) {
+                console.error('❌ Form submission error:', error);
+                alert('Error: ' + error.message);
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                buttonText.textContent = 'Send Message';
+                spinner.classList.add('hidden');
+                submitBtn.style.opacity = '1';
+            }
+        });
+
+        // FAQ functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('.faq-icon');
+                
+                // Toggle current question
+                const isOpen = answer.style.display === 'block';
+                answer.style.display = isOpen ? 'none' : 'block';
+                icon.textContent = isOpen ? '+' : '−';
+                
+                // Close other questions
+                faqQuestions.forEach(otherQuestion => {
+                    if (otherQuestion !== question) {
+                        const otherAnswer = otherQuestion.nextElementSibling;
+                        const otherIcon = otherQuestion.querySelector('.faq-icon');
+                        otherAnswer.style.display = 'none';
+                        otherIcon.textContent = '+';
+                    }
+                });
+            });
+        });
+    });
+    </script>
+
+    <style>
+    /* Additional styles for loading states */
+    .spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #ffffff;
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: spin 1s ease-in-out infinite;
+        margin-left: 8px;
+    }
+
+    .spinner.hidden {
+        display: none;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    .success-message.hidden {
+        display: none;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    /* FAQ Styles */
+    .faq-answer {
+        display: none;
+        padding: 15px 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .faq-question {
+        width: 100%;
+        text-align: left;
+        padding: 15px 0;
+        border: none;
+        background: none;
+        border-bottom: 1px solid #e0e0e0;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .faq-icon {
+        font-size: 20px;
+        font-weight: 300;
+    }
+    </style>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

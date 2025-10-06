@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Favicon for all devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="manifest" href="/images/site.webmanifest">
+    
+    <title>Book Now - Offmind Wellness</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <img src="/images/logo.png" alt="Offmind Wellness" class="logo-image">
+                <span class="brand-text">Offmind Wellness</span>  <!-- ✅ Updated brand -->
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="programs.html" class="nav-link">Programs</a></li>
+                <li><a href="tickets.html" class="nav-link active">Book Now</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Book Your Wellness Experience</h1>
+                <p class="page-subtitle">Choose your program and secure your spot for transformation</p>
+            </div>
+        </section>
+
+        <!-- Booking Form -->
+        <section class="booking-section section-padding">
+            <div class="container">
+                <div class="booking-container">
+                    <form id="booking-form" class="booking-form">
+                        <!-- Program Selection -->
+                        <div class="form-section">
+                            <h2 class="section-title">Select Your Program</h2>
+                            <div class="program-options">
+                                <label class="program-option">
+                                    <input type="radio" name="program" value="bestie" required>
+                                    <div class="option-content">
+                                        <div class="option-header">
+                                            <h3 class="option-title">🌸 Bestie Program</h3>
+                                            <span class="option-price">$299</span>
+                                        </div>
+                                        <p class="option-description">Strengthen friendships through playful activities and wellness practices</p>
+                                    </div>
+                                </label>
+
+                                <label class="program-option">
+                                    <input type="radio" name="program" value="ecotherapy" required>
+                                    <div class="option-content">
+                                        <div class="option-header">
+                                            <h3 class="option-title">🌲 Ecotherapy Program</h3>
+                                            <span class="option-price">$399</span>
+                                        </div>
+                                        <p class="option-description">Immersive nature healing and outdoor therapeutic experiences</p>
+                                    </div>
+                                </label>
+
+                                <label class="program-option">
+                                    <input type="radio" name="program" value="family-exchange" required>
+                                    <div class="option-content">
+                                        <div class="option-header">
+                                            <h3 class="option-title">🌍 Family Exchange Program</h3>
+                                            <span class="option-price">$499</span>
+                                        </div>
+                                        <p class="option-description">Cross-cultural family connections and shared learning experiences</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Date and Participants -->
+                        <div class="form-section">
+                            <h2 class="section-title">Select Date & Participants</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="program-date" class="form-label">Preferred Date</label>
+                                    <input type="date" id="program-date" name="date" required class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="participants" class="form-label">Number of Participants</label>
+                                    <select id="participants" name="participants" required class="form-input">
+                                        <option value="">Select participants</option>
+                                        <option value="1">1 Person</option>
+                                        <option value="2">2 People</option>
+                                        <option value="3">3 People</option>
+                                        <option value="4">4 People</option>
+                                        <option value="5">5+ People (Contact for group rates)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h2 class="section-title">Your Information</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="first-name" class="form-label">First Name</label>
+                                    <input type="text" id="first-name" name="firstName" required class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name" class="form-label">Last Name</label>
+                                    <input type="text" id="last-name" name="lastName" required class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" id="email" name="email" required class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" required class="form-input">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="special-requirements" class="form-label">Special Requirements</label>
+                                <textarea id="special-requirements" name="specialRequirements" rows="3" class="form-input"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Booking Buttons -->
+                        <div class="form-section">
+                            <h2 class="section-title">Complete Booking</h2>
+                            <div class="button-group">
+                                <button type="button" id="book-later" class="btn btn-primary full-width">📩 Book Now (Pay Later)</button>
+                                <button type="button" id="pay-now" class="btn btn-outline full-width">💳 Pay Now</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Confirmation Message -->
+                    <div id="booking-confirmation" class="booking-confirmation hidden">
+                        <div class="confirmation-content">
+                            <div class="confirmation-icon">✅</div>
+                            <h2 class="confirmation-title">Booking Confirmed!</h2>
+                            <p class="confirmation-message">
+                                Thank you for booking with OFF MIND INITIATIVE. Your wellness journey begins soon!
+                            </p>
+                            <div class="confirmation-details">
+                                <p><strong>Confirmation Number:</strong> <span id="confirmation-number">-</span></p>
+                            </div>
+                            <div class="confirmation-actions">
+                                <a href="index.html" class="btn btn-outline">Return Home</a>
+                                <a href="programs.html" class="btn btn-primary">View Programs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <img src="/images/logo.png" alt="Offmind Wellness" class="footer-logo">
+                    <p class="footer-tagline">Breathe. Unplug. Renew.</p>
+                </div>
+                <p class="footer-description">
+                    Transforming lives through mindful wellness experiences and nature connection.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="tickets.html">Book Now</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Programs</h4>
+                <ul class="footer-links">
+                    <li><a href="programs.html#bestie">Bestie Program</a></li>
+                    <li><a href="programs.html#ecotherapy">Ecotherapy</a></li>
+                    <li><a href="programs.html#family-exchange">Family Exchange</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Connect</h4>
+                <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61580206437384" target="_blank" class="social-link" aria-label="Facebook">📘</a>
+                        <a href="https://www.instagram.com/offmind_wellness/" target="_blank" class="social-link" aria-label="Instagram">📷</a>
+                        <a href="https://www.tiktok.com/@offmind_wellness" target="_blank" class="social-link" aria-label="TikTok">🎵</a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@bestie.co.ke"
+                            class="social-link"
+                            aria-label="Email"
+                            target="_blank">✉️</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BESTIE CO.KE. All rights reserved.</p>  <!-- ✅ Fixed brand -->
+        </div>
+    </div>
+</footer>
+
+    <script>
+// Form loading animation
+document.addEventListener('DOMContentLoaded', function() {
+  const forms = document.querySelectorAll('form');
+  
+  forms.forEach(form => {
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (!submitBtn) return;
+    
+    const originalText = submitBtn.innerHTML;
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending... ⌛';
+      submitBtn.style.opacity = '0.7';
+      
+      // Get form data
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+      
+      // Determine endpoint
+      const isContact = form.action.includes('/api/contact');
+      const endpoint = isContact ? '/api/contact' : '/book';
+      
+      // Send request
+      fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(result => {
+        // Reset button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+        submitBtn.style.opacity = '1';
+        
+        if (result.success) {
+          // Show success message
+          const successMsg = document.createElement('div');
+          successMsg.className = 'success-message';
+          successMsg.innerHTML = `
+            <div style="background: #d4edda; color: #155724; padding: 12px; border-radius: 4px; margin: 10px 0; border: 1px solid #c3e6cb;">
+              ✅ ${result.message}
+            </div>
+          `;
+          form.parentNode.insertBefore(successMsg, form);
+          
+          // Clear form
+          form.reset();
+          
+          // Remove message after 5 seconds
+          setTimeout(() => successMsg.remove(), 5000);
+        } else {
+          alert('Error: ' + (result.error || 'Something went wrong'));
+        }
+      })
+      .catch(error => {
+        // Reset button on error
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+        submitBtn.style.opacity = '1';
+        alert('Error: ' + error.message);
+      });
+    });
+  });
+});
+</script>
+
+    <script src="/js/main.js"></script>
+    <script src="js/payments.js"></script>
+</body>
+</html>
