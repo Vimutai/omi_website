@@ -22,12 +22,13 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!validateBookingData(bookingData)) return;
 
             try {
-                // ✅ FIX: send booking to correct backend route
-                const response = await fetch("/book", {
+                // ✅ CHANGE TO THIS (for Railway):
+                const response = await fetch("https://your-app-name.railway.app/book", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(bookingData),
                 });
+               
 
                 const result = await response.json();
 
