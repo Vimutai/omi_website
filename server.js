@@ -99,10 +99,14 @@ let transporter;
 
 try {
   if (emailUser && emailPass) {
+    const host = process.env.SMTP_HOST || 'smtp.gmail.com';
+    const port = Number(process.env.SMTP_PORT) || 465;
+    const secure = process.env.SMTP_SECURE === 'true' || port === 465;
+
     transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: process.env.SMTP_PORT || 465,
-      secure: process.env.SMTP_SECURE === 'true', // true for 465, false for 587
+      host,
+      port,
+      secure, // true for 465, false for 587
       auth: {
         user: emailUser,
         pass: emailPass,
@@ -122,7 +126,6 @@ try {
 } catch (error) {
   console.error('❌ Email configuration failed:', error);
 }
-
 
 // ===== ROUTES =====
 
