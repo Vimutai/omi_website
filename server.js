@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -97,15 +100,10 @@ let transporter;
 try {
   if (emailUser && emailPass) {
     transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false,
+      service: 'gmail',
       auth: {
-        user: emailUser,  // From environment variable
-        pass: emailPass   // From environment variable
-      },
-      tls: {
-        rejectUnauthorized: NODE_ENV === 'production'
+        user: emailUser,        // From environment variable
+        pass: emailPass         // From environment variable
       }
     });
     
@@ -387,28 +385,23 @@ app.post('/api/contact', async (req, res) => {
     if (transporter) {
       promises.push(
         transporter.sendMail({
-          from: `"BESTIE Website" <${emailUser}>`,
+          from: `"BESTIE" <${emailUser}>`,
           to: emailUser,
           replyTo: email,
-          subject: `New Contact: ${subject.substring(0, 50)}...`,
-          html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #333;">New Contact Form Submission</h2>
-              <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0;">
-                <p><strong>Contact ID:</strong> ${contactId}</p>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-                <p><strong>Subject:</strong> ${subject}</p>
-              </div>
-              <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
-                <strong>Message:</strong><br>
-                <p style="white-space: pre-line; line-height: 1.6;">${message}</p>
-              </div>
-              <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
-              <p style="color: #666; font-size: 12px;">
-                Received: ${new Date().toLocaleString()} | BESTIE Website
-              </p>
-            </div>
+          subject: `Contact Form: ${name}`,
+          text: `
+CONTACT FORM SUBMISSION
+
+From: ${name}
+Email: ${email}
+Subject: ${subject}
+Contact ID: ${contactId}
+
+Message:
+${message}
+
+Received: ${new Date().toLocaleString()}
+IP: ${req.ip}
           `
         })
         .then(info => {
@@ -519,33 +512,30 @@ app.post('/book', async (req, res) => {
     if (transporter) {
       promises.push(
         transporter.sendMail({
-          from: `"BESTIE Bookings" <${emailUser}>`,
+          from: `"BESTIE" <${emailUser}>`,
           to: emailUser,
           replyTo: email,
-          subject: `New Booking: ${program} - ${firstName} ${lastName}`,
-          html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #333;">New Booking Received</h2>
-              <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0;">
-                <p><strong>Booking ID:</strong> ${bookingId}</p>
-                <p><strong>Program:</strong> ${program}</p>
-                <p><strong>Date:</strong> ${new Date(date).toLocaleDateString()}</p>
-                <p><strong>Participants:</strong> ${participantsNum}</p>
-                <p><strong>Client:</strong> ${firstName} ${lastName}</p>
-                <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-                <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-              </div>
-              ${specialRequirements && specialRequirements !== 'None' ? `
-              <div style="background: #fff; padding: 15px; border: 1px solid #ddd; border-radius: 5px; margin: 15px 0;">
-                <strong>Special Requirements:</strong><br>
-                <p style="white-space: pre-line; line-height: 1.6;">${specialRequirements}</p>
-              </div>
-              ` : ''}
-              <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
-              <p style="color: #666; font-size: 12px;">
-                Received: ${new Date().toLocaleString()} | BESTIE Bookings System
-              </p>
-            </div>
+          subject: `Booking Request: ${program}`,
+          text: `
+BOOKING REQUEST
+
+Booking ID: ${bookingId}
+Program: ${program}
+Date: ${new Date(date).toLocaleDateString()}
+Participants: ${participantsNum}
+
+Client Information:
+Name: ${firstName} ${lastName}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+
+${specialRequirements && specialRequirements !== 'None' ? `
+Special Requirements:
+${specialRequirements}
+` : ''}
+
+Received: ${new Date().toLocaleString()}
+IP: ${req.ip}
           `
         })
         .then(info => {
