@@ -81,6 +81,30 @@ body {
     --container-max-width: 1200px;
 }
 
+/* Logo image sizing */
+/* Header Logo */
+.header-logo {
+    height: 50px;
+    width: auto;
+    max-width: 200px;
+}
+
+/* Footer Logo */
+.footer-logo {
+    height: 35px;
+    width: auto;
+    max-width: 150px;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+/* If you need even more control */
+.nav-brand img {
+    height: 40px;           /* Fixed height */
+    width: auto;            /* Auto width to maintain ratio */
+    object-fit: contain;    /* Prevents distortion */
+}
+
 /* ===== UTILITY CLASSES ===== */
 .container {
     max-width: var(--container-max-width);
@@ -1275,4 +1299,70 @@ a:hover {
     .social-link-detailed {
         padding: var(--spacing-sm);
     }
+}
+
+/* Email Section Styles */
+.email-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.email-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.email-option:hover {
+    background: #e9ecef;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.email-link {
+    color: #2c5aa0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.email-link:hover {
+    color: #1e3a8a;
+    text-decoration: underline;
+}
+
+.copy-btn {
+    background: #2c5aa0;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+    background: #1e3a8a;
+    transform: scale(1.05);
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
+}
+
+/* Copy feedback */
+.copy-btn.copied {
+    background: #10b981;
+    content: "Copied!";
 }
