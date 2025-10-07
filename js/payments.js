@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             try {
                 // ✅ CHANGE TO THIS (for Railway):
-                const response = await fetch("https://your-app-name.railway.app/book", {
-                    method: "POST",
+                const response = await fetch("https://omiwebsite-production.up.railway.app/book", {
+                method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(bookingData),
                 });

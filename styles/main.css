@@ -433,6 +433,56 @@ a:hover {
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
+/* FIX MOBILE NAVIGATION */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--background-white);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: var(--spacing-md);
+        padding-top: var(--spacing-2xl);
+        transition: left 0.3s ease-in-out; /* Fixed transition */
+        box-shadow: var(--shadow-lg);
+        z-index: 999; /* Ensure it's above content */
+    }
+    
+    .nav-menu.active {
+        left: 0 !important; /* IMPORTANT: Force show menu */
+    }
+    
+    .nav-toggle {
+        display: flex;
+        z-index: 1000; /* Ensure toggle is above menu */
+    }
+    
+    /* Hamburger animation */
+    .nav-toggle.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    
+    .nav-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav-toggle.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+    
+    /* Nav links styling */
+    .nav-link {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-lg);
+        width: 80%;
+        text-align: center;
+        border-radius: var(--radius-lg);
+    }
+}
 
 /* ===== CARDS ===== */
 .programs-grid {

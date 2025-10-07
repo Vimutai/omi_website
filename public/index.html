@@ -14,6 +14,61 @@
     <title>Home - Offmind Wellness</title>
     <link rel="stylesheet" href="/styles/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Essential Meta Tags -->
+    <meta name="description" content="Off Mind Initiative: Transformative wellness experiences in Kenya. Ecotherapy, Bestie Programs, and Family Exchange for mental clarity and emotional balance.">
+    <meta name="keywords" content="wellness Kenya, ecotherapy Nairobi, mental health programs, nature therapy, family exchange, Bestie program, Off Mind Initiative">
+    <meta name="author" content="Off Mind Initiative">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags (Social Media) -->
+    <meta property="og:title" content="Off Mind Initiative - Wellness Experiences in Kenya">
+    <meta property="og:description" content="Transformative wellness experiences that reconnect you with nature, community, and inner peace in Kenya.">
+    <meta property="og:image" content="https://bestie.co.ke/images/logo.png">
+    <meta property="og:url" content="https://bestie.co.ke">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Off Mind Initiative">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Off Mind Initiative - Wellness Experiences in Kenya">
+    <meta name="twitter:description" content="Transformative wellness experiences in Kenya for mental clarity and emotional balance.">
+    <meta name="twitter:image" content="https://bestie.co.ke/images/logo.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Off Mind Initiative",
+      "alternateName": "OMI",
+      "url": "https://bestie.co.ke",
+      "logo": "https://bestie.co.ke/images/logo.png",
+      "description": "Transformative wellness experiences in Kenya",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "KE"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@bestie.co.ke"
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61580206437384",
+        "https://www.instagram.com/offmind_wellness/",
+        "https://www.tiktok.com/@offmind_wellness"
+      ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FPQY88R7P5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FPQY88R7P5');
+    </script>
 </head>
 <body>
     <!-- Navigation Header -->
@@ -220,9 +275,9 @@ document.addEventListener('DOMContentLoaded', function() {
       // Determine endpoint
       const isContact = form.action.includes('/api/contact');
       const endpoint = isContact ? 
-        'https://your-app-name.railway.app/api/contact' : 
-        'https://your-app-name.railway.app/book';
-      
+        'https://omiwebsite-production.up.railway.app/api/contact' : 
+        'https://omiwebsite-production.up.railway.app/book';
+        
       // Send request
       fetch(endpoint, {
         method: 'POST',

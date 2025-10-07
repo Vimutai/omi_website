@@ -41,10 +41,28 @@ function initializeNavigation() {
 }
 
 /* ===== CONTACT FORM FUNCTIONALITY ===== */
+function initializeContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleContactFormSubmission();
+        });
+    }
+}
+
 function handleContactFormSubmission() {
+    const contactForm = document.getElementById('contact-form');
+    const contactButton = contactForm?.querySelector('button[type="submit"]');
+    
+    if (!contactForm) return;
+
     // Show loading state
-    if (contactButtonText) contactButtonText.textContent = 'Sending...';
-    if (contactSpinner) contactSpinner.classList.remove('hidden');
+    if (contactButton) {
+        contactButton.disabled = true;
+        contactButton.textContent = 'Sending...';
+    }
 
     // Get form data
     const formData = new FormData(contactForm);
@@ -57,14 +75,14 @@ function handleContactFormSubmission() {
 
     // Validate form data
     if (!validateContactForm(contactData)) {
-        resetContactButton();
+        resetContactButton(contactButton);
         return;
     }
 
-    // Send data to backend API (relative path)
+    // Send data to backend API
     (async () => {
         try {
-            const res = await fetch('https://your-app-name.railway.app/api/contact',  {
+            const res = await fetch('https://omiwebsite-production.up.railway.app/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(contactData)
@@ -83,32 +101,61 @@ function handleContactFormSubmission() {
             if (!res.ok) {
                 console.error('Server returned error:', res.status, data);
                 showAlert(data.error || data.message || `Server error (${res.status})`);
-                resetContactButton();
+                resetContactButton(contactButton);
                 return;
             }
 
             // Success
             console.log('Contact form submitted:', data);
             contactForm.style.display = 'none';
-            if (contactSuccess) contactSuccess.classList.remove('hidden');
+            
+            // Show success message
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.innerHTML = `
+                <div style="background: #d4edda; color: #155724; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid #c3e6cb;">
+                    <h3 style="margin: 0 0 10px 0; color: #155724;">✅ Message Sent Successfully!</h3>
+                    <p style="margin: 0;">Thank you for your message. We'll get back to you soon.</p>
+                </div>
+            `;
+            contactForm.parentNode.insertBefore(successDiv, contactForm);
 
-            // Reset form after delay (optional)
+            // Reset form after delay
             setTimeout(() => {
                 contactForm.reset();
                 contactForm.style.display = 'block';
-                if (contactSuccess) contactSuccess.classList.add('hidden');
-                resetContactButton();
+                successDiv.remove();
+                resetContactButton(contactButton);
             }, 5000);
 
         } catch (err) {
             console.error('Network / fetch error:', err);
             showAlert('Something went wrong. Please try again later.');
-            resetContactButton();
+            resetContactButton(contactButton);
         }
     })();
 }
 
+function validateContactForm(data) {
+    if (!data.name || !data.email || !data.subject || !data.message) {
+        showAlert('Please fill in all required fields.', 'error');
+        return false;
+    }
 
+    if (!isValidEmail(data.email)) {
+        showAlert('Please enter a valid email address.', 'error');
+        return false;
+    }
+
+    return true;
+}
+
+function resetContactButton(button) {
+    if (button) {
+        button.disabled = false;
+        button.textContent = 'Send Message';
+    }
+}
 
 /* ===== FAQ FUNCTIONALITY ===== */
 function initializeFAQ() {
